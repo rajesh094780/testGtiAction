@@ -12,7 +12,7 @@ on:
         required: true
       MULE_INSTALLER_FILE:
         description: 'Please Provide the MULE_INSTALLER_FILE'
-        default: 'jda-connect-mule4-server-installation-2019.1.1-1.zip'
+        default: '2019.1.1-1.zip'
         required: true
       VS_CODE_INSTALLER:
         description: 'Please Provide the VS_CODE_INSTALLER'
