@@ -22,13 +22,7 @@ on:
         description: 'Please Provide the CHROME_INSTALLER'
         default: 'VSCodeUserSetup-x64-1.66.0.exe'
         required: true
-      ARM_ENVIRONMENT_NAME:
-        description: 'Please Provide the ARM_ENVIRONMENT_NAME'
-        type: choice:
-        options: 
-        - Development
-        - Production
-        - Test
+     
       
 
 jobs:
