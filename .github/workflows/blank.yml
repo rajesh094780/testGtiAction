@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
     inputs:
       
-      serverName:
+      ARM_SERVER_NAME:
         description: 'Please Provide the Server Name'
         type: string
         required: true 
@@ -22,12 +22,13 @@ on:
         description: 'Please Provide the CHROME_INSTALLER'
         default: 'VSCodeUserSetup-x64-1.66.0.exe'
         required: true
-      name:
+      ARM_ENVIRONMENT_NAME:
         type: choice
-        description: 'Please Provide the CHROME_INSTALLER'
+        description: 'Please Provide the Environtment'
         options: 
-        - monalisa
-        - cschleiden
+        - Production
+        - Development
+        - Test
      
       
 
@@ -36,4 +37,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the input tag to STDOUT
-        run: echo  The tags are ${{ github.event.inputs.serverName }} ${{ github.event.inputs.JAVA_INSTALLER }} 
+        run: echo  The tags are ${{ github.event.inputs.ARM_SERVER_NAME }} ${{ github.event.inputs.JAVA_INSTALLER }} 
