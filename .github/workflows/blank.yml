@@ -1,7 +1,6 @@
 on:
   workflow_dispatch:
-    inputs:
-      
+    inputs:      
       ARM_SERVER_NAME:
         description: 'Please Provide the Server Name'
         type: string
@@ -21,8 +20,7 @@ on:
       CHROME_INSTALLER:
         description: 'Please Provide the CHROME_INSTALLER'
         default: 'VSCodeUserSetup-x64-1.66.0.exe'
-        required: true
-        
+        required: true        
       MULE_BUSINESS_GROUP:
         description: 'Please Provide the MULE_BUSINESS_GROUP'
         type: string
