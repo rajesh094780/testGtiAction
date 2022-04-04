@@ -42,16 +42,7 @@ on:
         description: 'Please Provide the WRAPPER_MAXMEMORY'
         default: '512'
         required: true
-      RUNTIME_FOLDER:
-        description: 'Please Provide the WRAPPER_MAXMEMORY'
-        default: '4096'
-        required: true
-      EU_COUNTRY:
-        type: choice
-        description: 'Please Provide the EU_COUNTRY'
-        options: 
-        - Y
-        - N
+      
 
       
 
