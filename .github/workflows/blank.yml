@@ -22,6 +22,12 @@ on:
         description: 'Please Provide the CHROME_INSTALLER'
         default: 'VSCodeUserSetup-x64-1.66.0.exe'
         required: true
+      name:
+        type: choice
+        description: 'Please Provide the CHROME_INSTALLER'
+        options: 
+        - monalisa
+        - cschleiden
      
       
 
