@@ -8,7 +8,19 @@ on:
         required: true 
       JAVA_INSTALLER:
         description: 'Please Provide the JAVA_INSTALLER'
-        type: string
+        default: 'OpenJDK8U-jdk_x64_windows_hotspot_8u322b06.msi'
+        required: true
+      MULE_INSTALLER_FILE:
+        description: 'Please Provide the MULE_INSTALLER_FILE'
+        default: 'jda-connect-mule4-server-installation-2019.1.1-1.zip'
+        required: true
+      VS_CODE_INSTALLER:
+        description: 'Please Provide the VS_CODE_INSTALLER'
+        default: 'VSCodeUserSetup-x64-1.66.0.exe'
+        required: true
+      CHROME_INSTALLER:
+        description: 'Please Provide the CHROME_INSTALLER'
+        default: 'VSCodeUserSetup-x64-1.66.0.exe'
         required: true
       
 
