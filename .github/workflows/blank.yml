@@ -29,7 +29,25 @@ on:
         - Production
         - Development
         - Test
-     
+      WRAPPER_MAXMETASPACE:
+        description: 'Please Provide the WRAPPER_MAXMETASPACE'
+        default: 'VSCodeUserSetup-x64-1.66.0.exe'
+        required: true
+      WRAPPER_MAXMEMORY:
+        description: 'Please Provide the WRAPPER_MAXMEMORY'
+        default: '512'
+        required: true
+      RUNTIME_FOLDER:
+        description: 'Please Provide the WRAPPER_MAXMEMORY'
+        default: '4096'
+        required: true
+      EU_COUNTRY:
+        type: choice
+        description: 'Please Provide the EU_COUNTRY'
+        options: 
+        - Y
+        - N
+
       
 
 jobs:
