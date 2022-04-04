@@ -6,6 +6,10 @@ on:
         description: 'Please Provide the Server Name'
         type: string
         required: true 
+      JAVA_INSTALLER:
+        description: 'Please Provide the JAVA_INSTALLER'
+        type: string
+        required: true
       
 
 jobs:
@@ -13,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the input tag to STDOUT
-        run: echo  The tags are ${{ github.event.inputs.serverName }} 
+        run: echo  The tags are ${{ github.event.inputs.serverName }} ${{ github.event.inputs.JAVA_INSTALLER }} 
