@@ -9,7 +9,7 @@ on:
       
 
 jobs:
-  print-tag:
+  serverName:
     runs-on: ubuntu-latest
     if:  ${{ github.event.inputs.serverName == 'true' }} 
     steps:
