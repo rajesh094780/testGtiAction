@@ -1,52 +1,20 @@
+name: Manually triggered workflow
 on:
   workflow_dispatch:
-    inputs:      
-      ARM_SERVER_NAME:
-        description: 'Please Provide the Server Name'
-        type: string
-        required: true 
-      JAVA_INSTALLER:
-        description: 'Please Provide the JAVA_INSTALLER'
-        default: 'OpenJDK8U-jdk_x64_windows_hotspot_8u322b06.msi'
+    inputs:
+      name:
+        description: 'Person to greet'
         required: true
-      MULE_INSTALLER_FILE:
-        description: 'Please Provide the MULE_INSTALLER_FILE'
-        default: '2019.1.1-1.zip'
-        required: true
-      VS_CODE_INSTALLER:
-        description: 'Please Provide the VS_CODE_INSTALLER'
-        default: 'VSCodeUserSetup-x64-1.66.0.exe'
-        required: true
-      CHROME_INSTALLER:
-        description: 'Please Provide the CHROME_INSTALLER'
-        default: 'VSCodeUserSetup-x64-1.66.0.exe'
-        required: true        
-      MULE_BUSINESS_GROUP:
-        description: 'Please Provide the MULE_BUSINESS_GROUP'
-        type: string
-        required: true 
-      ARM_ENVIRONMENT_NAME:
-        type: choice
-        description: 'Please Provide the Environtment'
-        options: 
-        - Production
-        - Development
-        - Test
-      WRAPPER_MAXMETASPACE:
-        description: 'Please Provide the WRAPPER_MAXMETASPACE'
-        default: 'VSCodeUserSetup-x64-1.66.0.exe'
-        required: true
-      WRAPPER_MAXMEMORY:
-        description: 'Please Provide the WRAPPER_MAXMEMORY'
-        default: '512'
-        required: true
-      
-
-      
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 jobs:
-  CreatingPropertiesFiles:
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the input tag to STDOUT
-        run: echo  The tags are ${{ github.event.inputs.ARM_SERVER_NAME }} ${{ github.event.inputs.JAVA_INSTALLER }} 
+    - run: |
+        echo "Hello $!"
+        echo "- in $!"
