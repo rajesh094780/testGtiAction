@@ -17,6 +17,6 @@ jobs:
     steps:
     - run: |
         echo "The GitHub Action Secret will be masked:  "
-        echo ${{ secrets.SECRET_TOKEN }}
+        echo ${{ secrets.MULE_ANYPOINT_USER_NAME }}
         echo "Trick to echo GitHub Actions Secret:  "
-        echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g' 
+        echo ${{secrets.MULE_AES_SECRET_KEY_PASSWORD}} | sed 's/./& /g' 
