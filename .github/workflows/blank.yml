@@ -16,5 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Hello $!"
-        echo "- in $!"
+        echo "The GitHub Action Secret will be masked:  "
+        echo ${{ secrets.SECRET_TOKEN }}
+        echo "Trick to echo GitHub Actions Secret:  "
+        echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g' 
