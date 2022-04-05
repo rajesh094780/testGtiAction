@@ -19,4 +19,4 @@ jobs:
         echo "The GitHub Action Secret will be masked:  "
         echo ${{ secrets.MULE_ANYPOINT_USER_NAME }}
         echo "Trick to echo GitHub Actions Secret:  "
-        echo ${{secrets.MULE_AES_SECRET_KEY_PASSWORD}}' 
+        echo ${{secrets.MULE_AES_SECRET_KEY_PASSWORD}}
