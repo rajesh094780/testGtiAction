@@ -13,3 +13,6 @@ jobs:
     steps:
       - name: ${{github.event.inputs.id}}
         run: echo run identifier ${{ inputs.id }}
+      - name: execute py script # run the run.py to get the latest data
+        run: |
+          python test.py
