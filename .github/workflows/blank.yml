@@ -24,18 +24,4 @@ jobs:
         run: python test.py
       
       
-      - name: Run Python Commands Single line
-        run: python -c "import requests; print(dir(requests))"
       
-      - name: Run Python Commands multi line
-        uses: jannekem/run-python-script-action@v1
-        id: script
-        with:
-          fail-on-error: false
-          script: |
-            from flask import Flask, request
-            app = Flask(__name__)
-            @app.route('/', methods=['POST'])
-            def result():
-                print(request.form['ref']) # should display 'bar'
-                return 'Received !' # response to your request.
