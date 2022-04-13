@@ -12,7 +12,7 @@ payload = json.dumps({
 headers = {
   'Accept': 'application/vnd.github.everest-preview+json',
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer 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',
+  'Authorization': 'Bearer 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',
   'Cookie': '_octo=GH1.1.1134568056.1649080195; logged_in=no'
 }
 
