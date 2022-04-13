@@ -6,15 +6,7 @@ on:
       sourceServer:
         description: 'Provide Source Server'
         required: true
-      targetServer:
-        description: 'Provide Target Server'
-        required: true
-      rsvName:
-        description: 'Provide RSV Details'
-        required: true
-      subscriptionId:
-        description: 'Provide subscription Id'
-        required: true
+      
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -33,6 +25,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           echo "sourceServer: ${{ github.event.inputs.sourceServer }}"
-          echo "targetServer: ${{ github.event.inputs.targetServer }}" 
-          echo "rsvName: ${{ github.event.inputs.rsvName }}" 
+          
  
