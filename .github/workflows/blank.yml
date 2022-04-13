@@ -6,6 +6,15 @@ on:
       sourceServer:
         description: 'Provide Source Server'
         required: true
+      targetServer:
+        description: 'Provide Target Server'
+        required: true
+      rsvName:
+        description: 'Provide RSV Server'
+        required: true
+      subcriptionId:
+        description: 'Provide Subscription Server'
+        required: true
       
 jobs:
   publish:
