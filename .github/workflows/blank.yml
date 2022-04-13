@@ -12,6 +12,9 @@ on:
       rsvName:
         description: 'Provide RSV Details'
         required: true
+      subscriptionId:
+        description: 'Provide subscription Id'
+        required: true
 jobs:
   lint:
     runs-on: ubuntu-latest
