@@ -1,18 +1,15 @@
-name: Manually triggered workflow
+name: ID Example
+
 on:
   workflow_dispatch:
     inputs:
       id:
-        description: 'Person to greet'        
-        default: 'Mona the Octocat'
-     
-
+        description: 'run identifier'
+        required: false
 jobs:
-  say_hello:
+  id:
+    name: Workflow ID Provider
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "The GitHub Action Secret will be masked:  "
-        echo ${{ secrets.MULE_ANYPOINT_USER_NAME }}
-        echo "Trick to echo GitHub Actions Secret:  "
-        echo ${{secrets.MULE_AES_SECRET_KEY_PASSWORD}}
+      - name: ${{github.event.inputs.id}}
+        run: echo run identifier ${{ inputs.id }}
