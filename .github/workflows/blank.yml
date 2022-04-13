@@ -8,19 +8,9 @@ on:
         required: true
       
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-  
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-    
   publish:
     runs-on: ubuntu-latest
-    needs: [lint, test]
+   
     steps:
       - uses: actions/checkout@v2
       - run: |
