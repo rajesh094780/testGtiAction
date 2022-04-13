@@ -31,4 +31,8 @@ jobs:
     needs: [lint, test]
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          echo "sourceServer: ${{ github.event.inputs.sourceServer }}"
+          echo "targetServer: ${{ github.event.inputs.targetServer }}" 
+          echo "rsvName: ${{ github.event.inputs.rsvName }}" 
  
