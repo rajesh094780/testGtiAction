@@ -2,10 +2,16 @@ name: ID Example
 
 on:
   workflow_dispatch:
-    inputs:
-      id:
-        description: 'run identifier'
-        required: false
+    inputs:      
+      sourceServer:
+        description: 'Provide Source Server'
+        required: true
+      targetServer:
+        description: 'Provide Target Server'
+        required: true
+      rsvName:
+        description: 'Provide RSV Details'
+        required: true
 jobs:
   lint:
     runs-on: ubuntu-latest
