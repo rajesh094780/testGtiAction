@@ -2,14 +2,10 @@ name: Manually triggered workflow
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Person to greet'
-        
+      id:
+        description: 'Person to greet'        
         default: 'Mona the Octocat'
-      home:
-        description: 'location'
-        
-        default: 'The Octoverse'
+     
 
 jobs:
   say_hello:
