@@ -6,20 +6,7 @@ on:
       sourceServer:
         description: 'Provide Source Server'
         required: true
-      targetServer:
-        description: 'Provide Target Server'
-        required: true
-      rsvName:
-        description: 'Provide RSV Server'
-        required: true
-      subcriptionId:
-        description: 'Provide Subscription Server'
-        required: true
-      filesAndFoldersToIgnore:
-        required: false
-        description: 'A list of directories to ignore. Supports glob patterns.'
-        default: '["node_modules", ".git", "dist", ".github"]'
-      
+     
 jobs:
   publish:
     runs-on: ubuntu-latest
