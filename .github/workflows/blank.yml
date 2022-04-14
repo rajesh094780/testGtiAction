@@ -15,6 +15,10 @@ on:
       subcriptionId:
         description: 'Provide Subscription Server'
         required: true
+      filesAndFoldersToIgnore:
+        required: false
+        description: 'A list of directories to ignore. Supports glob patterns.'
+        default: '["node_modules", ".git", "dist", ".github"]'
       
 jobs:
   publish:
