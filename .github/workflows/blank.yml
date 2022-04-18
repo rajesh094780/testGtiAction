@@ -11,46 +11,33 @@ on:
         required: true
 env:
   TEST_RESULT: 'success'
-
 jobs:
-  job1:
-    name: Change env variable
-
-    # set job-level output and pass the value of step-level output to it
+  setup-job:
+    runs-on: ubuntu-latest
     outputs:
-      test-result: ${{ steps.set_outputs.outputs.test-result }}
-
-    runs-on: ubuntu-latest
+      var1: ${{ steps.set-variable.outputs.test }}
     steps:
-      - name: Print value of env variable
-        run: echo "TEST_RESULT = $TEST_RESULT"
-
-      - name: Change env variable
+      - uses: actions/checkout@v2
+      - name: Set test variable
+        id: set-variable
         run: |
-          echo "::set-env name=TEST_RESULT::failure"
-
-      - name: Print new value of env variable
-        run: echo "TEST_RESULT = $TEST_RESULT"
-
-      # set step-level output and pass the value of env variable to it
-      - name: set outputs
-        id: set_outputs
+          if [ ${{ github.ref }} != 'refs/heads/main' ]; then
+            echo "IS NOT main branch"
+            echo "::set-output name=test::abc"
+          else
+            echo "IS main branch"
+            echo "::set-output name=test::123"
+          fi
+        shell: bash
+      - name: Read exported variable
         run: |
-          echo "::set-output name=test-result::$TEST_RESULT"
-  job2:
-    name: Access modified env variable
-    needs: [job1]
+          echo "OUTPUT: ${{ steps.check.test-env.test }}"
+
+  subsequent-job:
     runs-on: ubuntu-latest
+    needs: [setup-job]
     steps:
-      - name: Print the output of job1
-        run: echo "needs.job1.outputs.test-result = ${{ needs.job1.outputs.test-result }}"
-
-      - name: Print value of env variable
-        run: echo "TEST_RESULT = $TEST_RESULT"
-
-      # use job1's output to update the env variable
-      - name: Change env variable
-        run: echo "::set-env name=TEST_RESULT::${{ needs.job1.outputs.test-result }}"
-
-      - name: Print new value of env variable
-        run: echo "TEST_RESULT = $TEST_RESULT"
+      - uses: actions/checkout@v2
+      - name: Read exported variable
+        run: |
+          echo "OUTPUT: ${{needs.setup-job.outputs.var1}}"
