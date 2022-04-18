@@ -26,7 +26,8 @@ jobs:
         run: echo "TEST_RESULT = $TEST_RESULT"
 
       - name: Change env variable
-        run: echo "::set-env name=TEST_RESULT::failure"
+        run: |
+          echo "::set-env name=TEST_RESULT::failure"
 
       - name: Print new value of env variable
         run: echo "TEST_RESULT = $TEST_RESULT"
