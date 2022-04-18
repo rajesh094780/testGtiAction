@@ -9,7 +9,13 @@ on:
       targetServer:
         description: 'Provide Target Server'
         required: true
-     
+env:
+  CLUSTER_NAME: CLUSTERNAME
+  RESOURCE_GROUP: RESOURCEGROUP
+  KEYVAULT: KVNAME
+  GITHUB_OWNER: GUTHUBUSER
+  REPO: FLUXREPO
+  
 jobs:
   publish:
     runs-on: ubuntu-latest
