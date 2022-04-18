@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       var1: ${{ steps.set-variable.outputs.test }}
+      var2: ${{ steps.set-variable.outputs.test1 }}
+      var3: ${{ steps.set-variable.outputs.test2 }}
     steps:
       - uses: actions/checkout@v2
       - name: Set test variable
@@ -28,10 +30,14 @@ jobs:
             echo "IS main branch"
             echo "::set-output name=test::123"
           fi
+          echo "::set-output name=test1::test1"
+          echo "::set-output name=test2::test2"
         shell: bash
       - name: Read exported variable
         run: |
           echo "OUTPUT: ${{ steps.check.test-env.test }}"
+          echo "OUTPUT: ${{ steps.check.test-env.test1 }}"
+          echo "OUTPUT: ${{ steps.check.test-env.test2 }}"
 
   subsequent-job:
     runs-on: ubuntu-latest
@@ -41,3 +47,5 @@ jobs:
       - name: Read exported variable
         run: |
           echo "OUTPUT: ${{needs.setup-job.outputs.var1}}"
+          echo "OUTPUT: ${{needs.setup-job.outputs.var2}}"
+          echo "OUTPUT: ${{needs.setup-job.outputs.var3}}"
