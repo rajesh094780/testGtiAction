@@ -12,14 +12,26 @@ jobs:
     runs-on: ubuntu-latest
    
     steps:
-      - uses: Azure/get-keyvault-secrets@v1
-        with:
-          keyvault: "my Vault" # name of key vault in Azure portal
-          secrets: 'mySecret'  # comma separated list of secret keys to fetch from key vault 
-        id: myGetSecretAction # ID for secrets that you will reference
+      - name: Get Azure credential
+        id: get-cred
+        run: |
+          env_name=${{ github.event.inputs.sourceServer }}
+          if [[ $env_name == dev_01 ]]; then
+            echo "::set-output name=login_cred::${{ secrets.DEV_01 }}"
+          elif [[ $env_name == dev_02 ]]; then
+            echo "::set-output name=login_cred::${{ secrets.DEV_02 }}"
+          elif [[ $env_name == test_01 ]]; then
+            echo "::set-output name=login_cred::${{ secrets.TEST_01 }}"
+          elif [[ $env_name == test_02 ]]; then
+            echo "::set-output name=login_cred::${{ secrets.TEST_02 }}"
+          elif [[ $env_name == prd_01 ]]; then
+            echo "::set-output name=login_cred::${{ secrets.PRD_01 }}"
+          else
+            echo "::set-output name=login_cred::${{ secrets.other_creds }}"
+          fi
       - uses: actions/checkout@v2
       
       - run: |
-          echo "sourceServer: ${{ github.event.inputs.sourceServer }}"
+          echo "sourceServer: ${{ steps.get-cred.outputs.login_cred }}"
           
  
