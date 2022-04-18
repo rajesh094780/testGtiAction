@@ -20,7 +20,7 @@ jobs:
         run: |
           env_name=${{ github.event.inputs.sourceServer }}
           if [[ $env_name == abc ]]; then
-            echo "::set-output name=login_cred::abc"
+            echo "::set-output name=login_cred::${{ secrets.MULE_AES_SECRET_KEY_PASSWORD }}"
           fi
       - uses: actions/checkout@v2
       
