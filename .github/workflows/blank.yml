@@ -38,6 +38,7 @@ jobs:
           echo "OUTPUT: ${{ steps.check.test-env.test }}"
           echo "OUTPUT: ${{ steps.check.test-env.test1 }}"
           echo "OUTPUT: ${{ steps.check.test-env.test2 }}"
+          sleep(30)
 
   subsequent-job:
     runs-on: ubuntu-latest
