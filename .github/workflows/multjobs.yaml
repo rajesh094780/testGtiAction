@@ -1,0 +1,30 @@
+name: ID Example
+
+on:
+  workflow_dispatch:
+    inputs:      
+      sourceServer:
+        description: 'Provide Source Server'
+        required: true
+      targetServer:
+        description: 'Provide Target Server'
+        required: true
+      rsvName:
+        description: 'Provide RSV Details'
+        required: true
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+    
+  publish:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v2
