@@ -6,6 +6,9 @@ on:
       sourceServer:
         description: 'Provide Source Server'
         required: true
+      targetServer:
+        description: 'Provide Target Server'
+        required: true
      
 jobs:
   publish:
