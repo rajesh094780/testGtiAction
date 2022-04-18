@@ -17,17 +17,7 @@ jobs:
         run: |
           env_name=${{ github.event.inputs.sourceServer }}
           if [[ $env_name == abc ]]; then
-            echo "::set-output name=abc"
-          elif [[ $env_name == dev_02 ]]; then
-            echo "::set-output name=login_cred::${{ secrets.DEV_02 }}"
-          elif [[ $env_name == test_01 ]]; then
-            echo "::set-output name=login_cred::${{ secrets.TEST_01 }}"
-          elif [[ $env_name == test_02 ]]; then
-            echo "::set-output name=login_cred::${{ secrets.TEST_02 }}"
-          elif [[ $env_name == prd_01 ]]; then
-            echo "::set-output name=login_cred::${{ secrets.PRD_01 }}"
-          else
-            echo "::set-output name=login_cred::${{ secrets.other_creds }}"
+            echo "::set-output name=login_cred::abc"
           fi
       - uses: actions/checkout@v2
       
