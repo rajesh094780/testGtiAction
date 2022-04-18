@@ -1,4 +1,4 @@
-name: ID Example
+name: SQl DB REFRESH
 
 on:
   workflow_dispatch:
