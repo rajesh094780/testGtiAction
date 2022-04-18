@@ -11,10 +11,7 @@ on:
         required: true
 env:
   CLUSTER_NAME: ${{ github.event.inputs.sourceServer }}
-  RESOURCE_GROUP: RESOURCEGROUP
-  KEYVAULT: KVNAME
-  GITHUB_OWNER: GUTHUBUSER
-  REPO: FLUXREPO
+  
   
 jobs:
   publish:
@@ -28,9 +25,6 @@ jobs:
           if [[ $env_name == abc ]]; then
             echo "::set-output name=login_cred::${{ secrets.MULE_AES_SECRET_KEY_PASSWORD }}"
           fi
-      - uses: actions/checkout@v2
-      
-      - run: |
-          echo "sourceServer: ${{ env.CLUSTER_NAME }}"
+        if: env.CLUSTER_NAME == 'PSR'
           
  
