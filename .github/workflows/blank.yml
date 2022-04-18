@@ -16,8 +16,8 @@ jobs:
         id: get-cred
         run: |
           env_name=${{ github.event.inputs.sourceServer }}
-          if [[ $env_name == dev_01 ]]; then
-            echo "::set-output name=login_cred::${{ secrets.DEV_01 }}"
+          if [[ $env_name == abc ]]; then
+            echo "::set-output name=abc"
           elif [[ $env_name == dev_02 ]]; then
             echo "::set-output name=login_cred::${{ secrets.DEV_02 }}"
           elif [[ $env_name == test_01 ]]; then
