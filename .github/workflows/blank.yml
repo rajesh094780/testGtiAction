@@ -21,10 +21,7 @@ jobs:
       - name: Get Azure credential
         id: get-cred
         run: |
-          env_name=${{ github.event.inputs.sourceServer }}
-          if [[ $env_name == abc ]]; then
-            echo "::set-output name=login_cred::${{ secrets.MULE_AES_SECRET_KEY_PASSWORD }}"
-          fi
+          echo  ${{ env.CLUSTER_NAME }}
         if: env.CLUSTER_NAME == 'PSR'
           
  
