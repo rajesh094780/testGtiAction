@@ -21,12 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set test variable
-        uses: azure/powershell@v1
+        
         id: set-variable-AzResource
-        with:
-          inlineScript: |   
-            $dbname="${{ github.event.inputs.SourceServer }}"
-          
-            $dbname | ConvertFrom-Json
-          
-          azPSVersion: "latest"
+        run: |
+          $dbname="${{ github.event.inputs.SourceServer }}"
+          $dbname | ConvertFrom-Json
+        shell: "pwsh"
