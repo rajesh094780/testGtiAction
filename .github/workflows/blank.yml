@@ -28,6 +28,5 @@ jobs:
           $jsonStr = @"
           "${{ github.event.inputs.SourceServer }}"
           "@
-          $hastable=$jsonStr |  ConvertFrom-Json
-          $hastable.DBDetails
+          $jsonStr
         shell: "pwsh"
