@@ -25,5 +25,10 @@ jobs:
         id: set-variable-AzResource
         run: |
           $dbname="${{ github.event.inputs.SourceServer }}"
-          $dbname | ConvertFrom-Json
+          $jsonStr = @"
+          {
+            $dbname
+          }
+          "@
+          $jsonStr
         shell: "pwsh"
