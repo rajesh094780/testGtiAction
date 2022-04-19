@@ -26,9 +26,7 @@ jobs:
         run: |
          
           $jsonStr = @"
-          {
-            "${{ github.event.inputs.SourceServer }}"
-          }
+          "${{ github.event.inputs.SourceServer }}"
           "@
           $jsonStr
         shell: "pwsh"
