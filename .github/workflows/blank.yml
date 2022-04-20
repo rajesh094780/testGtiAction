@@ -26,10 +26,7 @@ jobs:
         id: set-variable-AzResource
         run: |
          
-          $jsonStr = @"
-          "${{ env.AZURE_TAGS }}"
-          "@
-          $jsonStr
-          $hastable=$jsonStr |  ConvertFrom-Json
-          $hastable.DBDetails
+    
+          write-host "${{ env.AZURE_TAGS }}"
+          
         shell: "pwsh"
