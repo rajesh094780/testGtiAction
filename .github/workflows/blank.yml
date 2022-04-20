@@ -11,6 +11,7 @@ on:
         required: true
 env:
   TEST_RESULT: 'success'
+  AZURE_TAGS: '${{ github.event.inputs.SourceServer }}'
 jobs:
   setup-job:
     runs-on: ubuntu-latest
@@ -26,7 +27,7 @@ jobs:
         run: |
          
           $jsonStr = @"
-          "${{ github.event.inputs.SourceServer }}"
+          "${{ env.AZURE_TAGS }}"
           "@
           $jsonStr
           $hastable=$jsonStr |  ConvertFrom-Json
