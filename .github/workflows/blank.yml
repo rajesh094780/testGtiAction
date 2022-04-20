@@ -27,6 +27,6 @@ jobs:
         run: |
          
     
-          ${{ env.AZURE_TAGS }} | ConvertFrom-Json
+          '${{ env.AZURE_TAGS }}' | ConvertFrom-Json
           
         shell: "pwsh"
