@@ -27,6 +27,6 @@ jobs:
         run: |
          
     
-          write-host "${{ env.AZURE_TAGS }}"
+          "${{ env.AZURE_TAGS }}" | ConvertTo-Json
           
         shell: "pwsh"
