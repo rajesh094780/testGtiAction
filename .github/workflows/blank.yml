@@ -25,10 +25,6 @@ jobs:
         run: |
          
     
-          $hastable='${{ env.AZURE_TAGS }}' |  ConvertFrom-Json
-          foreach($i in $hastable.DBDetails){
-            $i.sourceDBName
-            Write-Host "==========="
-          }
+          echo '${{ env.AZURE_TAGS }}' 
           
         shell: "pwsh"
