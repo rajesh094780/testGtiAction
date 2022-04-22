@@ -18,9 +18,10 @@ jobs:
       var2: ${{ steps.set-variable.outputs.test1 }}
       var3: ${{ steps.set-variable.outputs.test2 }}
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Build
-        shell: pwsh
-        run: |
-         & .\build.ps1
+      - uses: actions/checkout@v2      
+      - name: Deploy Hub
+        uses: azure/powershell@v1
+        with:
+          inlineScript: |
+           .\scripts\build.ps1
+          azPSVersion: "latest"
