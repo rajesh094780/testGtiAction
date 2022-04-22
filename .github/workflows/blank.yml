@@ -19,12 +19,8 @@ jobs:
       var3: ${{ steps.set-variable.outputs.test2 }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set test variable
-        
-        id: set-variable-AzResource
+      
+      - name: Build
+        shell: pwsh
         run: |
-         
-    
-          echo '${{ env.AZURE_TAGS }}' 
-          
-        shell: "pwsh"
+         .\build.ps1
