@@ -1,1 +1,4 @@
-write-host "echo"
+param (
+    $jsonObject
+)
+$jsonObject
