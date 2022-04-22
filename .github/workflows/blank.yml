@@ -10,6 +10,7 @@ on:
 env:
   TEST_RESULT: 'success'
   AZURE_TAGS: '${{ github.event.inputs.SourceServer }}'
+  SCRIPTPATH: '.github/workflows'
 jobs:
   setup-job:
     runs-on: ubuntu-latest
@@ -23,5 +24,5 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-           .\scripts\build.ps1
+           ./${{ env.SCRIPTPATH }}/build.ps1
           azPSVersion: "latest"
