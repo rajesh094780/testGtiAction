@@ -73,7 +73,8 @@ jobs:
           inlineScript: |
             
             write-host "==============================="
-            echo ${{ env.CURRENT_BRANCH}}
+            $s=" ${{ env.CURRENT_BRANCH}}"
+            $s
             write-host "==============================="
             $mule_host = "anypoint.mulesoft.com"
             $Mule_Org_Name =  "${{env.MULEORGNAME}}"
