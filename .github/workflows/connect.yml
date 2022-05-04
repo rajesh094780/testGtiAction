@@ -71,9 +71,9 @@ jobs:
         uses: azure/powershell@v1        
         with:
           inlineScript: |
-            $s= "${{ github.event.release.author.login }}"
+            
             write-host "==============================="
-            write-host $s
+            echo ${{ env.CURRENT_BRANCH}}
             write-host "==============================="
             $mule_host = "anypoint.mulesoft.com"
             $Mule_Org_Name =  "${{env.MULEORGNAME}}"
