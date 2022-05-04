@@ -66,14 +66,16 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      
+      - name: Logging
+        run: |
+          echo "${{toJSON(github.event)}}"
       - name: 'Pre-Check Source: ${{ github.event.inputs.SourceServer }}' 
         uses: azure/powershell@v1        
         with:
           inlineScript: |
             
             write-host "==============================="
-            $s=" ${{ github.email }}"
+            $s=" ${{ github.actor }}"
              
             $s
             write-host "==============================="
