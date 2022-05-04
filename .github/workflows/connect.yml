@@ -71,6 +71,7 @@ jobs:
         uses: azure/powershell@v1        
         with:
           inlineScript: |
+            echo "${{ github.event.release.author.login }}"
             $mule_host = "anypoint.mulesoft.com"
             $Mule_Org_Name =  "${{env.MULEORGNAME}}"
             $mule_BusinessGroup = "${{env.MULEBUSINESSGROUP}}"
