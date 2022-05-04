@@ -1,0 +1,81 @@
+name: DMS-Connect
+on:
+  workflow_dispatch:
+    inputs:
+             
+      Subscription:
+        type: choice
+        description: 'Provide Subcription Name'
+        options:
+        - sub1
+        - sub2
+      SourceServer:
+        description: 'Provide Source Server Name'     
+        required: true
+        
+      euCountry:
+        type: choice
+        description: 'Provide Mule EU_COUNTRY'
+        options:
+        - Y
+        - N
+        
+      BusinessGroup:
+        description: 'Provide BusinessGroupr Name'     
+        required: true
+        
+      MuleEnv:
+        type: choice
+        description: 'Provide Mule environtment'
+        options:
+        - Production
+        - Development
+        - Test
+      dbdetails:
+        description: 'Provide DB Parameter in json'     
+        required: true
+      sfCase:
+        description: 'Provide SFcase number'     
+        required: true
+      requestor:
+        description: 'Provide Requestor email id'     
+        required: true
+      
+env:
+  TEST_RESULT: 'success'
+  VAULT_NAME: 'kv-jda-eus2-02'
+  VAULT_SECRETS_NAME: 'solution'
+  SUBSCRIPTION: "${{ github.event.inputs.Subscription }}"
+  DBPARAMETER: ${{ github.event.inputs.dbdetails }}"
+  PIPELINEENV: 'TEST'
+  TENANTID: 'ssss'
+  SCRIPTPATH: '.github/workflows'
+  
+  SFCASE: "${{ github.event.inputs.sfCase }}"
+  REQUESTOREMAIL: "${{ github.event.inputs.requestor }}"
+  MULEBUSINESSGROUP: "${{ github.event.inputs.BusinessGroup }}"
+  MULEENV: "${{ github.event.inputs.MuleEnv }}"
+  MULEORGNAME: 'jda'
+  
+  
+jobs:
+  
+  PreCheck:
+    runs-on: ubuntu-latest
+    
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: 'Pre-Check Source: ${{ github.event.inputs.SourceServer }}' 
+        uses: azure/powershell@v1        
+        with:
+          inlineScript: |
+            $mule_host = "anypoint.mulesoft.com"
+            $Mule_Org_Name =  "${{env.MULEORGNAME}}"
+            $mule_BusinessGroup = "${{env.MULEBUSINESSGROUP}}"
+            $mule_username = 'sapam'
+            $mule_password = "@hello#World123456" 
+            $mule_Env_Name = "${{env.MULEENV}}"
+            ./${{ env.SCRIPTPATH }}/sub/muleConnect.ps1 -mule_host $mule_host -Mule_Org_Name $Mule_Org_Name  -mule_BusinessGroup $mule_BusinessGroup -mule_username $mule_username -mule_password $mule_password -mule_Env_Name $mule_Env_Name
+          azPSVersion: "latest"
