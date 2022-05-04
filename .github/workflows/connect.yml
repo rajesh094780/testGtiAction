@@ -73,7 +73,7 @@ jobs:
           inlineScript: |
             
             write-host "==============================="
-            $s=" ${{ github.actor }}"
+            $s=" ${{ github.email }}"
              
             $s
             write-host "==============================="
