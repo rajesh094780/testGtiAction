@@ -73,7 +73,7 @@ jobs:
           inlineScript: |
             
             write-host "==============================="
-            $s=" ${{ env.CURRENT_BRANCH}}"
+            $s=" ${{ github.event.schedule.user.login }}"
             $s
             write-host "==============================="
             $mule_host = "anypoint.mulesoft.com"
