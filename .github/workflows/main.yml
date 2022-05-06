@@ -10,10 +10,10 @@ jobs:
     
     #environment: 'Test'
     steps:
-     - uses: actions/checkout@v2
-     - name: 'Pre-Check Source' 
-       uses: azure/powershell@v1        
-       with:
-          inlineScript: |                       
-            write-host "5asdd"
-          azPSVersion: "latest"
+     - id: sets-a-secret
+       run: |
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "::set-output name=secret-number::$the_secret"
+     - run: |
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
