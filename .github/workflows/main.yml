@@ -1,19 +1,14 @@
-name: main
-on:
+name: add-mask-test
+on: 
   workflow_dispatch:
-
+    inputs:
+      secret:
+        description: 'secret value'
+        required: true
 jobs:
-  
-  deploy:
-    name: deploy
+  my-job:
     runs-on: ubuntu-latest
-    
-    #environment: 'Test'
     steps:
-     - name: Set up secret file
-       env:
-        DEBUG_PASSWORD: ${{ secrets.HELOO }}
-        DEBUG_SECRET_KEY: ${{ secrets.HELLO }}
-       run: |
-        echo $DEBUG_PASSWORD 
-        echo $DEBUG_SECRET_KEY 
+      - name: add-mask test
+        run: |
+          echo "::add-mask::${{ github.event.inputs.secret }}"
