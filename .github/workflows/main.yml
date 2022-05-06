@@ -8,7 +8,20 @@ on:
 jobs:
   my-job:
     runs-on: ubuntu-latest
+    outputs:
+      clientSecret-var: ${{ steps.set-variable.outputs.clientSecret_1 }}
     steps:
       - name: add-mask test
+        id: set-variable
         run: |
+          echo "::set-output name=clientSecret_1::${{secrets.HELLO}}"
           echo "${{secrets.HELLO}}"
+  my-job1:
+    runs-on: ubuntu-latest
+    needs: [my-job]
+    steps:
+      - name: add-mask test
+        id: set-variable
+        run: |
+          
+          echo "${{needs.my-job.outputs.clientSecret-var}}"
