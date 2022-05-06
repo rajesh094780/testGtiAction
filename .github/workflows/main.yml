@@ -16,4 +16,4 @@ jobs:
     #environment: 'Test'
     steps:
        - name: Deployed
-         run: echo Deployed
+         run: echo hello
