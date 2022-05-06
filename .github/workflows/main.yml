@@ -13,7 +13,7 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     needs: build
-    environment: 'Test'
+    #environment: 'Test'
     steps:
        - name: Deployed
          run: echo Deployed
