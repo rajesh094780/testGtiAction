@@ -3,17 +3,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build
-        run: echo building
+  
   deploy:
     name: deploy
     runs-on: ubuntu-latest
-    needs: build
+    
     #environment: 'Test'
     steps:
-       - name: Deployed
-         run: echo hello
+     - uses: actions/checkout@v2
+     - name: 'Pre-Check Source' 
+       uses: azure/powershell@v1        
+       with:
+          inlineScript: |                       
+            write-host "5asdd"
+          azPSVersion: "latest"
