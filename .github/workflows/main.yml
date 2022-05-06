@@ -14,15 +14,14 @@ jobs:
       ssssss: ${{ steps.set-variable.outputs.a }}
     steps:
       - name: add-mask test
-        uses: azure/powershell@v1
+        shell: pwsh
         id: set-variable
-        with:
-          inlineScript: |
+        run: |
             $s='sub-jda-cld-solutions-01'
             $values= "${{secrets.HELLO}}"
             $values.clientSecret_1
           
-          azPSVersion: "latest"          
+           
   my-job1:
     runs-on: ubuntu-latest
     needs: [my-job]
