@@ -18,7 +18,8 @@ jobs:
         id: set-variable
         with:
           inlineScript: |
-            write-host "${{secrets.HELLO}}"
+            $values= "${{secrets.HELLO}}"
+            $values |  ConvertFrom-Json
           
           azPSVersion: "latest"          
   my-job1:
