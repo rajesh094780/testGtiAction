@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: add-mask test
         run: |
-          echo "::add-mask::${{ github.event.inputs.secret }}"
+          echo "${{secrets.HELLO}}"
