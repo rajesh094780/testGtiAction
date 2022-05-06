@@ -14,7 +14,7 @@ jobs:
       - name: add-mask test
         id: set-variable
         run: |
-          echo "::set-output name=a::${{secrets.HELLO}}"
+          #echo "::set-output name=a::${{secrets.HELLO}}"
           echo "${{secrets.HELLO}}"
   my-job1:
     runs-on: ubuntu-latest
