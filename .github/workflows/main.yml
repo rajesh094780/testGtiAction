@@ -18,8 +18,9 @@ jobs:
         id: set-variable
         with:
           inlineScript: |
+            $s='sub-jda-cld-solutions-01'
             $values= "${{secrets.HELLO}}"
-            $values |  ConvertFrom-Json
+            $values.$s
           
           azPSVersion: "latest"          
   my-job1:
