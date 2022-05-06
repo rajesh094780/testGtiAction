@@ -10,10 +10,10 @@ jobs:
     
     #environment: 'Test'
     steps:
-     - id: sets-a-secret
+     - name: Set up secret file
+       env:
+        DEBUG_PASSWORD: ${{ secrets.HELOO }}
+        DEBUG_SECRET_KEY: ${{ secrets.HELLO }}
        run: |
-          the_secret=$((RANDOM))
-          echo "::add-mask::$the_secret"
-          echo "::set-output name=secret-number::$the_secret"
-     - run: |
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
+        echo $DEBUG_PASSWORD 
+        echo $DEBUG_SECRET_KEY 
