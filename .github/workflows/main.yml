@@ -14,10 +14,13 @@ jobs:
       ssssss: ${{ steps.set-variable.outputs.a }}
     steps:
       - name: add-mask test
+        uses: azure/powershell@v1
         id: set-variable
-        run: |
-         
-          echo "${{secrets."${{env.TEST_RESULT}}"}}"
+        with:
+          inlineScript: |
+            write-host "${{secrets.HELLO}}"
+          
+          azPSVersion: "latest"          
   my-job1:
     runs-on: ubuntu-latest
     needs: [my-job]
