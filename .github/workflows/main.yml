@@ -20,8 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [my-job]
     steps:
-      - name: add-mask test
-        id: set-variable
+      - name: add-mask testsdsd
         run: |
           
           echo "${{needs.my-job.outputs.ssssss}}"
