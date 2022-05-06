@@ -20,7 +20,7 @@ jobs:
           inlineScript: |
             $s='sub-jda-cld-solutions-01'
             $values= "${{secrets.HELLO}}"
-            $values.$s
+            $values.clientSecret_1
           
           azPSVersion: "latest"          
   my-job1:
