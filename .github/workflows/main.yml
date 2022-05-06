@@ -9,12 +9,12 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     outputs:
-      clientSecret-var: ${{ steps.set-variable.outputs.clientSecret_1 }}
+      ssssss: ${{ steps.set-variable.outputs.a }}
     steps:
       - name: add-mask test
         id: set-variable
         run: |
-          echo "::set-output name=clientSecret_1::${{secrets.HELLO}}"
+          echo "::set-output name=a::${{secrets.HELLO}}"
           echo "${{secrets.HELLO}}"
   my-job1:
     runs-on: ubuntu-latest
@@ -24,4 +24,4 @@ jobs:
         id: set-variable
         run: |
           
-          echo "${{needs.my-job.outputs.clientSecret-var}}"
+          echo "${{needs.my-job.outputs.ssssss}}"
