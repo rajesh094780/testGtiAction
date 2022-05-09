@@ -17,6 +17,7 @@ on:
         - sub2
 env:
   TEST_RESULT: 'HELLO'
+  SUBSCRIPTION: "${{ github.event.inputs.Subscription }}"
 jobs:
   my-job:
     runs-on: ubuntu-latest
@@ -32,4 +33,4 @@ jobs:
           inlineScript: |  
             ehco "hello"
           azPSVersion: "latest" 
-        
+        if: ${{ env.SUBSCRIPTION == 'sub-by-cld-byc-prod-01' }}
