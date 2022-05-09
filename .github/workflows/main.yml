@@ -6,13 +6,7 @@ on:
         type: choice
         description: 'Provide Subcription Name'
         options:
-        - sub-by-cld-solutions-eus2-02
-        - sub-by-cld-solutions-euw-02
-        - sub-by-cld-solutions-ase-02
-        - sub-by-cld-solutions-aue-02
-        - sub-by-cld-byc-prod-01
-        - sub-jda-cld-solutions-01
-        - sub-by-cld-indsol-prod-01
+       
         - sub1
         - sub2
 env:
