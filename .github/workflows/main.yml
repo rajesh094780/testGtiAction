@@ -2,9 +2,19 @@ name: add-mask-test
 on: 
   workflow_dispatch:
     inputs:
-      secret:
-        description: 'secret value'
-        required: true
+      Subscription:
+        type: choice
+        description: 'Provide Subcription Name'
+        options:
+        - sub-by-cld-solutions-eus2-02
+        - sub-by-cld-solutions-euw-02
+        - sub-by-cld-solutions-ase-02
+        - sub-by-cld-solutions-aue-02
+        - sub-by-cld-byc-prod-01
+        - sub-jda-cld-solutions-01
+        - sub-by-cld-indsol-prod-01
+        - sub1
+        - sub2
 env:
   TEST_RESULT: 'HELLO'
 jobs:
@@ -16,13 +26,10 @@ jobs:
     
     
     steps:
-      - id: init
-        run: |
-          echo "::set-output name=the_secret::$((RANDOM))"
-      - id: sets-a-secret
-        run: |
-          local_secret="${{ steps.init.outputs.the_secret }}"
-          echo "::add-mask::$local_secret"
-          echo "::set-output name=secret-number::$local_secret"
-      - run: |
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"     
+      - name: 'Install Mule' 
+        uses: azure/powershell@v1   
+        with:
+          inlineScript: |  
+            ehco "hello"
+          azPSVersion: "latest" 
+        
