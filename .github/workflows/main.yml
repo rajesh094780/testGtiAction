@@ -31,6 +31,6 @@ jobs:
         uses: azure/powershell@v1   
         with:
           inlineScript: |  
-            ehco "hello"
+            echo "hello"
           azPSVersion: "latest" 
         if: ${{ env.SUBSCRIPTION == 'sub-by-cld-byc-prod-01' }}
