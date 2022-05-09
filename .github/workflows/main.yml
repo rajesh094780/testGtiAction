@@ -12,21 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       ssssss: ${{ steps.set-variable.outputs.a }}
+      
+    
+    
     steps:
-      - name: add-mask test
-        shell: pwsh
-        id: set-variable
+      - id: init
         run: |
-            $s='sub-jda-cld-solutions-01'
-            $values= "${{secrets.HELLO}}"
-            $values.clientSecret_1
-          
-           
-  my-job1:
-    runs-on: ubuntu-latest
-    needs: [my-job]
-    steps:
-      - name: add-mask testsdsd
+          echo "::set-output name=the_secret::$((RANDOM))"
+      - id: sets-a-secret
         run: |
-          
-          echo "${{needs.my-job.outputs.ssssss}}"
+          local_secret="${{ steps.init.outputs.the_secret }}"
+          echo "::add-mask::$local_secret"
+          echo "::set-output name=secret-number::$local_secret"
+      - run: |
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"     
