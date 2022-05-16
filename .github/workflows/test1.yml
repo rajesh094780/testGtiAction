@@ -31,13 +31,40 @@ on:
       SourceServer3:
         description: 'Provide Source Server Name'     
         required: true
+      SourceServer4:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer5:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer6:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer7:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer8:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer9:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer10:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer11:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer12:
+        description: 'Provide Source Server Name'     
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   GETCREDS:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
