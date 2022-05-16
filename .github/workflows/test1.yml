@@ -7,6 +7,21 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      region:
+        type: choice
+        description: 'Please Provide Server Regions'
+        options:
+        - Central US
+        - East US 2
+        - Southeast Asia
+        - Australia East
+        - West Europe
+        
+      
+      SourceServer:
+        description: 'Provide Source Server Name'     
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
