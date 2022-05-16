@@ -22,6 +22,15 @@ on:
       SourceServer:
         description: 'Provide Source Server Name'     
         required: true
+      SourceServer1:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer2:
+        description: 'Provide Source Server Name'     
+        required: true
+      SourceServer3:
+        description: 'Provide Source Server Name'     
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
